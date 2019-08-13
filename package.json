@@ -8,6 +8,7 @@
   },
   "scripts": {
     "install": "clib install --skip-cache --prefix build/",
+    "build": "clib configure --prefix build/",
     "version": "./scripts/update-clib-json && git add clib.json",
     "test": "make test"
   },
