@@ -1,0 +1,9 @@
+{
+  "name": "sodium",
+  "version": "master",
+  "repo": "clibs/sodium",
+  "description": "A modern, portable, easy to use crypto library. https://libsodium.org",
+  "keywords": [ "libsodium", "sodium", "cryptography" ],
+  "install": "sh clib-install.sh",
+  "makefile": "clib-install.sh"
+}

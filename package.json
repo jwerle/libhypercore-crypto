@@ -1,0 +1,25 @@
+{
+  "name": "@jwerle/libhypercore-crypto",
+  "version": "0.0.0",
+  "description": "A C99 library for various cryptographic functions used in Hypercore.",
+  "directories": {
+    "example": "example",
+    "test": "test"
+  },
+  "scripts": {
+    "install": "clib install --skip-cache --prefix build/",
+    "version": "./scripts/update-clib-json && git add clib.json",
+    "test": "make test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jwerle/libhypercore-crypto.git"
+  },
+  "author": "Joseph Werle <joseph.werle@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jwerle/libhypercore-crypto/issues"
+  },
+  "homepage": "https://github.com/jwerle/libhypercore-crypto#readme",
+  "main": "index.js"
+}

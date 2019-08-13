@@ -1,0 +1,39 @@
+{
+  "name": "hypercore-crypto",
+  "version": "0.0.0",
+  "description": "A C99 library for various cryptographic functions used in Hypercore",
+  "repo": "jwerle/libhypercore-crypto",
+  "src": [
+    "include/hypercore/crypto/platform.h",
+    "include/hypercore/crypto/version.h",
+    "include/hypercore/crypto/crypto.h",
+    "src/crypto.c",
+    "src/version.c",
+    "mk/brief.mk",
+    "Makefile.in",
+    "configure",
+    "README.md",
+    "LICENSE"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jwerle/libhypercore-crypto.git"
+  },
+  "author": "Joseph Werle <joseph.werle@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jwerle/libhypercore-crypto/issues"
+  },
+  "homepage": "https://github.com/jwerle/libhypercore-crypto#readme",
+  "dependencies": {
+    "arablocks/flat-tree.c": "0.3.1",
+    "clibs/sodium": "master",
+    "jwerle/libuint64be": "0.1.1",
+    "sodium": "master"
+  },
+  "development": {
+    "jwerle/libok": "0.3.0",
+    "jwerle/libmerkle": "0.1.1",
+    "jwerle/libmerkle@0.1.2": "0.1.2"
+  }
+}

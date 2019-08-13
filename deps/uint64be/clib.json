@@ -1,0 +1,21 @@
+{
+  "name": "uint64be",
+  "version": "0.1.1",
+  "description": "A C99 library for creating random access storage interfaces.",
+  "repo": "jwerle/libuint64be",
+  "src": [
+    "include/uint64be/platform.h",
+    "include/uint64be/version.h",
+    "include/uint64be/uint64be.h",
+    "src/uint64be.c",
+    "src/version.c",
+    "mk/brief.mk",
+    "Makefile.in",
+    "configure",
+    "README.md",
+    "LICENSE"
+  ],
+  "development": {
+    "jwerle/libok": "0.2.0"
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "name": "merkle",
+  "version": "0.1.2",
+  "description": "A C99 library for generating Merkle trees.",
+  "repo": "jwerle/libmerkle",
+  "src": [
+    "include/merkle/allocator.h",
+    "include/merkle/merkle.h",
+    "include/merkle/platform.h",
+    "include/merkle/version.h",
+    "src/allocator.c",
+    "src/merkle.c",
+    "src/version.c",
+    "mk/brief.mk",
+    "Makefile.in",
+    "configure",
+    "README.md",
+    "LICENSE"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jwerle/libmerkle.git"
+  },
+  "author": "Joseph Werle <joseph.werle@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jwerle/libmerkle/issues"
+  },
+  "homepage": "https://github.com/jwerle/libmerkle#readme",
+  "dependencies": {
+    "arablocks/flat-tree.c": "0.3.1",
+    "jb55/sha256.c": "0.0.2"
+  },
+  "development": {
+    "jwerle/libok": "0.3.0",
+    "clibs/sodium": "master"
+  }
+}
