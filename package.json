@@ -1,6 +1,6 @@
 {
   "name": "@jwerle/libhypercore-crypto",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "A C99 library for various cryptographic functions used in Hypercore.",
   "directories": {
     "example": "example",
