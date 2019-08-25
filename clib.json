@@ -3,6 +3,9 @@
   "version": "0.2.1",
   "description": "A C99 library for various cryptographic functions used in Hypercore",
   "repo": "jwerle/libhypercore-crypto",
+  "configure": "bash configure",
+  "makefile": "Makefile",
+  "prefix": "./build/",
   "src": [
     "include/hypercore/crypto/allocator.h",
     "include/hypercore/crypto/crypto.h",
@@ -31,12 +34,10 @@
   "dependencies": {
     "arablocks/flat-tree.c": "0.3.1",
     "clibs/sodium": "master",
-    "jwerle/libuint64be": "0.1.1",
-    "sodium": "master"
+    "jwerle/libuint64be": "0.1.1"
   },
   "development": {
     "jwerle/libok": "0.3.0",
-    "jwerle/libmerkle": "0.1.1",
-    "jwerle/libmerkle@0.1.2": "0.1.2"
+    "jwerle/libmerkle": "0.3.3"
   }
 }

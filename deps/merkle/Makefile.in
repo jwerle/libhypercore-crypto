@@ -130,11 +130,8 @@ $(BUILD_LIB)/$(TARGET_STATIC): $(OBJS)
 .PHONY: $(BUILD_INCLUDE)/$(LIBRARY_NAME)
 $(BUILD_INCLUDE)/$(LIBRARY_NAME): $(HEADERS)
 	$(ENSURE_BUILD_DIRECTORY_STRUCTURE)
-	@echo $(HEADERS) | xargs dirname | while read dir; do \
-	  dest=$${dir/'$(CWD)'/'$(BUILD_DIRECTORY)'};     \
-		mkdir -p $$dest;                                \
-		cp -rf $$dir/* $$dest;                          \
-	done
+	$(MKDIR) $@
+	cp $(HEADERS) $@
 
 ## Builds a shared object
 .PHONY: $(TARGET_SO)
@@ -190,8 +187,7 @@ distclean: clean
 .PHONY: test/clean
 test/clean: BRIEF_ARGS = clean (test)
 test/clean:
-	$(MAKE) clean -C test
-
+	if test -d test; then $(MAKE) clean -C test; fi
 ## Compiles and runs all test
 .PHONY: test
 test: $(BUILD_LIB)/libsodium.a
@@ -201,7 +197,7 @@ test: build
 .PHONY: example/clean
 example/clean: BRIEF_ARGS = clean (example)
 example/clean:
-	$(MAKE) clean -C example
+	if test -f example; then $(MAKE) clean -C example; fi
 
 ## Compiles example
 .PHONY: example

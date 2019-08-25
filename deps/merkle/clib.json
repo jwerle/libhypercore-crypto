@@ -1,13 +1,18 @@
 {
   "name": "merkle",
-  "version": "0.1.2",
+  "version": "0.3.3",
+  "author": "jwerle",
   "description": "A C99 library for generating Merkle trees.",
   "repo": "jwerle/libmerkle",
+  "configure": "bash configure --prefix=$PREFIX --build=$PREFIX",
+  "makefile": "Makefile",
+  "prefix": "./build/",
   "src": [
     "include/merkle/allocator.h",
     "include/merkle/merkle.h",
     "include/merkle/platform.h",
     "include/merkle/version.h",
+    "scripts/version",
     "src/allocator.c",
     "src/merkle.c",
     "src/version.c",
@@ -21,7 +26,6 @@
     "type": "git",
     "url": "git+https://github.com/jwerle/libmerkle.git"
   },
-  "author": "Joseph Werle <joseph.werle@gmail.com>",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/jwerle/libmerkle/issues"
