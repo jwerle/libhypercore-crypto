@@ -3,7 +3,7 @@
   "version": "0.2.4",
   "description": "A C99 library for various cryptographic functions used in Hypercore",
   "repo": "jwerle/libhypercore-crypto",
-  "configure": "bash configure",
+  "configure": "bash configure --prefix=$PREFIX --build=${BUILD:-$PREFIX}",
   "makefile": "Makefile",
   "prefix": "./build/",
   "src": [
