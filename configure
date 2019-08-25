@@ -555,6 +555,7 @@ function main {
       --libdir=?*) LIBDIR="$value" ;;
       --mandir=?*) MANDIR="$value" ;;
       --target=?*) LIBRARY_NAME="$value" ;;
+      --build=?*) BUILD="$value" ;;
 
       ## debug configuration
       --debug|--debug=?*) DEBUG=$value ;;
@@ -566,6 +567,7 @@ function main {
   CONFIGURE_FLAGS+="--libdir=$LIBDIR "
   CONFIGURE_FLAGS+="--mandir=$MANDIR "
   CONFIGURE_FLAGS+="--target=$LIBRARY_NAME "
+  CONFIGURE_FLAGS+="--build=$BUILD "
 
   if (( $DEBUG )); then
     CONFIGURE_FLAGS+="--debug=true"
