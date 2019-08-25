@@ -43,7 +43,7 @@ SRC += @SRC@
 SRC += @DEPS@
 
 ## Source headers
-HEADERS += $(wildcard $(CWD)/include/hypercore/crypto/*.h)
+HEADERS += $(wildcard *.h) $(wildcard $(CWD)/include/hypercore/crypto/*.h)
 
 ## Source objects
 OBJS := $(SRC:.c=.o)
@@ -126,11 +126,8 @@ $(BUILD_LIB)/$(TARGET_STATIC): $(OBJS)
 .PHONY: $(BUILD_INCLUDE)/$(LIBRARY_NAME)
 $(BUILD_INCLUDE)/$(LIBRARY_NAME): $(HEADERS)
 	$(ENSURE_BUILD_DIRECTORY_STRUCTURE)
-	@echo $(HEADERS) | xargs dirname | while read dir; do \
-	  dest=$${dir/'$(CWD)'/'$(BUILD_DIRECTORY)'};     \
-		mkdir -p $$dest;                                \
-		cp -rf $$dir/* $$dest;                          \
-	done
+	$(MKDIR) -p $@
+	$(CP) -f $(HEADERS) $@
 
 ## Builds a shared object
 .PHONY: $(TARGET_SO)

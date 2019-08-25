@@ -1,5 +1,4 @@
 #!/bin/bash
-
 shopt -s nocasematch
 
 declare OS="$(uname)"
@@ -59,13 +58,12 @@ declare -a OPTIONAL_LIBRARY_DEPENDENCIES=()
 
 ## Source dependency files
 declare -a DEPS=(
-  deps/flat-tree/*.c
 )
 
 ## Source files
 declare -a SRC=(
-  $(ls *.c)
-  $(ls src/*.c)
+  $(ls *.c 2>/dev/null)
+  $(ls src/*.c 2>/dev/null)
 )
 
 ## Required system headers
