@@ -14,7 +14,7 @@ declare LIBRARY_NAME="hypercore-crypto"
 
 ## Library version
 function semver() {
-  cat package.json |     \
+  cat clib.json |     \
     grep '"version":' |  \
     tr -d '"version":' | \
     tr -d ',' |          \
@@ -34,7 +34,14 @@ declare -i VERSION_REVISION=1
 declare SELF="$(basename $0)"
 
 ## Project version
-declare PROJECT_VERSION="$(./scripts/version)"
+if test -f version; then
+  declare PROJECT_VERSION="$(sh ./version)"
+elif test -f scripts/version; then
+  declare PROJECT_VERSION="$(sh ./scripts/version)"
+else
+  declare PROJECT_VERSION="NO_VERSION"
+fi
+
 
 ## Required system commands
 declare -a COMMAND_DEPENDENCIES=(

@@ -40,7 +40,7 @@ if test -f version; then
 elif test -f scripts/version; then
   declare PROJECT_VERSION="$(sh ./scripts/version)"
 else
-  declare PROJECT_VERSION="0.0.0"
+  declare PROJECT_VERSION="NO_VERSION"
 fi
 
 ## Required system commands
