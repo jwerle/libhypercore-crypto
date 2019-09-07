@@ -24,8 +24,8 @@ typedef struct hypercore_crypto_node hypercore_crypto_node_t;
 })
 
 struct hypercore_crypto_buffer {
-  unsigned char *bytes;
   unsigned long long size;
+  unsigned char *bytes;
 };
 
 struct hypercore_crypto_keypair {
@@ -56,7 +56,7 @@ hypercore_crypto_sign(
 
 HYPERCORE_CRYPTO_EXPORT int
 hypercore_crypto_verify(
-  hypercore_crypto_buffer_t *out,
+  hypercore_crypto_buffer_t *signature,
   const hypercore_crypto_buffer_t *message,
   const hypercore_crypto_buffer_t *public_key);
 
