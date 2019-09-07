@@ -228,8 +228,8 @@ hypercore_crypto_data(
   require(0 != data, EFAULT);
 
   // leaf=0
-  const hypercore_crypto_buffer_t header = { DATA_TYPES + 0, 1 };
-  const hypercore_crypto_buffer_t length = { (unsigned char [8]) { 0 }, 8 };
+  const hypercore_crypto_buffer_t header = { 1, DATA_TYPES + 0 };
+  const hypercore_crypto_buffer_t length = { 8, (unsigned char [8]) { 0 } };
   const hypercore_crypto_buffer_t *buffers[] = {
     &header,
     &length,
@@ -278,8 +278,8 @@ hypercore_crypto_parent(
   }
 
   // parent=1
-  const hypercore_crypto_buffer_t header = { DATA_TYPES + 1, 1 };
-  const hypercore_crypto_buffer_t length = { (unsigned char [8]) { 0 }, 8 };
+  const hypercore_crypto_buffer_t header = { 1, DATA_TYPES + 1 };
+  const hypercore_crypto_buffer_t length = { 8, (unsigned char [8]) { 0 } };
   const hypercore_crypto_buffer_t *buffers[] = {
     &header,
     &length,
@@ -316,7 +316,7 @@ hypercore_crypto_tree(
   unsigned long long size = 3 * count + 1;
 
   // root=2
-  const hypercore_crypto_buffer_t header = { DATA_TYPES + 2, 1 };
+  const hypercore_crypto_buffer_t header = { 1, DATA_TYPES + 2 };
   const hypercore_crypto_buffer_t *buffers[size];
   hypercore_crypto_buffer_t indices[size];
   hypercore_crypto_buffer_t lengths[size];

@@ -55,7 +55,7 @@ main(void) {
   hypercore_crypto_buffer_t signature = { 0 };
   rc = hypercore_crypto_sign(
     &signature,
-    &(hypercore_crypto_buffer_t) { bytes("hello"), 5 },
+    &(hypercore_crypto_buffer_t) { 5, bytes("hello") },
     &keypair.secret_key);
 
   if (0 != signature.bytes) {
@@ -72,7 +72,7 @@ main(void) {
 
   rc = hypercore_crypto_verify(
     &signature,
-    &(hypercore_crypto_buffer_t) { bytes("hello"), 5 },
+    &(hypercore_crypto_buffer_t) { 5, bytes("hello") },
     &keypair.public_key);
 
   if (0 == rc) {
@@ -81,7 +81,7 @@ main(void) {
 
   hypercore_crypto_free(signature.bytes);
 
-  hypercore_crypto_buffer_t message = { bytes("hello"), 5 };
+  hypercore_crypto_buffer_t message = { 5, bytes("hello") };
   hypercore_crypto_buffer_t data = { 0 };
   rc = hypercore_crypto_data(
     &data,
@@ -96,7 +96,7 @@ main(void) {
 
   hypercore_crypto_buffer_t leaf = { 0 };
   hypercore_crypto_node_t node = {
-    .data = &(hypercore_crypto_buffer_t) { bytes("hello"), 5 }
+    .data = &(hypercore_crypto_buffer_t) { 5, bytes("hello") }
   };
 
   hypercore_crypto_leaf(&leaf, &node);
@@ -114,12 +114,12 @@ main(void) {
     &(hypercore_crypto_node_t){
       .index = 0,
       .size = 4,
-      .hash = &(hypercore_crypto_buffer_t) { bytes("\x0e\x0c\x0e\x0f"), 4 }
+      .hash = &(hypercore_crypto_buffer_t) { 4, bytes("\x0e\x0c\x0e\x0f")  }
     },
     &(hypercore_crypto_node_t){
       .index = 2,
       .size = 4,
-      .hash = &(hypercore_crypto_buffer_t) { bytes("\x0e\x0e\x0e\x0e"), 4 }
+      .hash = &(hypercore_crypto_buffer_t) { 4, bytes("\x0e\x0e\x0e\x0e") }
     });
 
   unsigned char expected_parent_hash[] = {
@@ -152,8 +152,8 @@ main(void) {
     .index = merkle.roots.list[0]->index,
     .size = merkle.roots.list[0]->size,
     .hash = &(hypercore_crypto_buffer_t) {
-      merkle.roots.list[0]->hash,
       merkle.roots.list[0]->hash_size,
+      merkle.roots.list[0]->hash,
     },
   };
 
@@ -161,12 +161,12 @@ main(void) {
     .index = merkle.roots.list[1]->index,
     .size = merkle.roots.list[1]->size,
     .hash = &(hypercore_crypto_buffer_t) {
-      merkle.roots.list[1]->hash,
       merkle.roots.list[1]->hash_size,
+      merkle.roots.list[1]->hash,
     },
     .data = &(hypercore_crypto_buffer_t) {
-      merkle.roots.list[1]->data,
       merkle.roots.list[1]->hash_size,
+      merkle.roots.list[1]->data,
     }
   };
 
@@ -214,7 +214,7 @@ main(void) {
 
   hypercore_crypto_buffer_t discoverykey = { 0 };
   hypercore_crypto_discoverykey(&discoverykey,
-    &(hypercore_crypto_buffer_t){ key, 32 });
+    &(hypercore_crypto_buffer_t){ 32, key });
 
   //printb(discoverykey.bytes, discoverykey.size);
   if (0 == memcmp(expected, discoverykey.bytes, discoverykey.size)) {
